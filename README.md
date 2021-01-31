@@ -163,3 +163,4 @@ func main() {
 ## Sources
 
 - https://dmitri.shuralyov.com/idiomatic-go
+- https://talks.golang.org/2014/readability.slide#21
