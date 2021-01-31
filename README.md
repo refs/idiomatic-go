@@ -1,3 +1,13 @@
+Table of Contents
+=================
+
+* [Mutex hat](#mutex-hat)
+* [Empty string check](#empty-string-check)
+* [Avoid unused method receiver names](#avoid-unused-method-receiver-names)
+* [For brands or words with more than 1 capital letter, lowercase all letters](#for-brands-or-words-with-more-than-1-capital-letter-lowercase-all-letters)
+* [Error variable naming](#error-variable-naming)
+* [Sources](#sources)
+
 ## Mutex hat
 
 ```golang
