@@ -1,4 +1,57 @@
+## Mutex hat
+
+```golang
+struct {
+	...
+
+	rateMu     sync.Mutex
+	rateLimits [categories]Rate
+	mostRecent rateLimitCategory
+}
+```
+Here, rateMu is a mutex hat. It sits, like a hat, on top of the variables that it protects.
+
+So, without needing to write the comment, the above is implicitly understood to be equivalent to:
+
+```golang
+struct {
+	...
+
+	// rateMu protects rateLimits and mostRecent.
+	rateMu     sync.Mutex
+	rateLimits [categories]Rate
+	mostRecent rateLimitCategory
+}
+```
+When adding a new, unrelated field that isn't protected by rateMu, do this:
+
+```diff
+ struct {
+ 	...
+
+ 	rateMu     sync.Mutex
+ 	rateLimits [categories]Rate
+ 	mostRecent rateLimitCategory
++
++	common service
+ }
+```
+Don't do this:
+
+```diff
+ struct {
+ 	...
+
+ 	rateMu     sync.Mutex
+ 	rateLimits [categories]Rate
+ 	mostRecent rateLimitCategory
++	common     service
+ }
+```
+See https://talks.golang.org/2014/readability.slide#21.
+
 ## Empty string check
+
 Do this:
 
 ```golang
