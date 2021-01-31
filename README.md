@@ -1,4 +1,24 @@
+## Avoid unused method receiver names
+Do this:
+
+```golang
+func (foo) method() {
+	...
+}
+```
+
+Don't do this:
+
+```
+func (f foo) method() {
+	...
+}
+```
+
+If f is unused. It's more readable because it's clear that fields or methods of foo are not used in method.
+
 ## For brands or words with more than 1 capital letter, lowercase all letters
+
 Do this:
 
 ```
