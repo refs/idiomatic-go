@@ -1,4 +1,28 @@
+## Empty string check
+Do this:
+
+```golang
+if s == "" {
+	...
+}
+```
+Don't do this:
+
+```golang
+if len(s) == 0 {
+	...
+}
+```
+If you're checking if s is the empty string. Using len(s) is fine for other uses.
+
+The first form is more readable because it's more obvious s is a string and not a slice.
+
+See Russ Cox's comment in a [golang-nuts](https://groups.google.com/d/msg/golang-nuts/7Ks1iq2s7FA/GOujoyeYsOcJ) topic:
+
+> if I care about "is it this specific string" I tend to write s == "".
+
 ## Avoid unused method receiver names
+
 Do this:
 
 ```golang
