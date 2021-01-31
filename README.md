@@ -1,4 +1,29 @@
-Error variable naming
+## For brands or words with more than 1 capital letter, lowercase all letters
+Do this:
+
+```
+// Exported.
+var OAuthEnabled bool
+var GitHubToken string
+
+// Unexported.
+var oauthEnabled bool
+var githubToken string
+```
+
+Don't do this:
+
+```
+// Unexported.
+var oAuthEnabled bool
+var gitHubToken string
+```
+
+Lowercase all letters, not only the first letter, of the first word when you want to make an unexported version.
+
+For consistency with what the Go project does, and because it looks nicer. oAuth is not pretty.
+
+## Error variable naming
 
 Do this:
 
